@@ -50,8 +50,6 @@
 #define E1000_DEBUG
 
 #ifdef E1000_DEBUG
-
-static int debugflags = DBGBIT(TXERR) | DBGBIT(GENERAL);
 #define E1000_FOR_DEBUG(x)                                              \
     x(GENERAL)          x(IO)           x(MMIO)         x(INTERRUPT)    \
     x(RX)               x(TX)           x(MDIC)         x(EEPROM)       \
@@ -63,8 +61,14 @@ enum {
     E1000_FOR_DEBUG(E1000_DEBUG_ENUM)
 #undef E1000_DEBUG_ENUM
 };
-
+static const char *debugnames[] = {
+#define E1000_DEBUG_NAME(name) #name,
+    E1000_FOR_DEBUG(E1000_DEBUG_NAME)
+    NULL
+#undef E1000_DEBUG_NAME
+};
 #define DBGBIT(x)    (1<<DEBUG_##x)
+static int debugflags = DBGBIT(TXERR) | DBGBIT(GENERAL);
 
 #define DBGOUT(what, fmt, ...) do { \
     if (debugflags & DBGBIT(what)) \

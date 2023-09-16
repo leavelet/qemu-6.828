@@ -265,7 +265,7 @@ static void *rr_cpu_thread_fn(void *arg)
                 qemu_mutex_lock_iothread();
 
                 if (r == EXCP_TRIPLE) {
-                    cpu_dump_state(cpu, stderr, fprintf, 0);
+                    cpu_dump_state(cpu, stderr, 0);
                     fprintf(stderr, "Triple fault.  Halting for inspection via"
                             " QEMU monitor.\n");
                     if (gdbserver_running())

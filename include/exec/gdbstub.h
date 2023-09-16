@@ -29,7 +29,7 @@ void gdb_register_coprocessor(CPUState *cpu,
 int gdbserver_start(const char *port_or_device);
 
 void gdb_set_stop_cpu(CPUState *cpu);
-
+int gdbserver_running(void);
 /**
  * gdb_has_xml:
  * This is an ugly hack to cope with both new and old gdb.
