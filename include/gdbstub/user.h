@@ -38,6 +38,6 @@ void gdb_signalled(CPUArchState *as, int sig);
  * @cs: CPU
  */
 void gdbserver_fork(CPUState *cs);
-
+int gdbserver_running(void);
 
 #endif /* GDBSTUB_USER_H */

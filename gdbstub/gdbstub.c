@@ -2219,3 +2219,7 @@ void gdb_create_default_process(GDBState *s)
     process->target_xml[0] = '\0';
 }
 
+inline int gdbserver_running(void)
+{
+    return gdbserver_state.init;
+}

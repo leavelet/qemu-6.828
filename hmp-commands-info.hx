@@ -250,6 +250,21 @@ ERST
         .cmd        = hmp_info_mtree,
     },
 
+#if defined(TARGET_I386)
+    {
+        .name       = "pg",
+        .args_type  = "",
+        .params     = "",
+        .help       = "show the page table",
+        .cmd        = hmp_info_pg,
+    },
+#endif
+
+SRST
+  ``info pg``
+  Show the page table.
+ERST
+
 SRST
   ``info mtree``
     Show memory tree.
